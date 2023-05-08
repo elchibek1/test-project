@@ -14,19 +14,21 @@ use App\Http\Controllers\Admin\CategoriesController as AdminCategoriesController
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
 Route::get('/', function () {
     return view('welcome');
 });
 
+Route::middleware('auth')->group(function () {
+    Route::resource('records', RecordsController::class)->except('show');
+});
+
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::name('admin.')->prefix('admin')->middleware(['admin', 'auth'])->group(function ()
 {
     Route::resources([
         'categories' => AdminCategoriesController::class
     ]);
 });
-Route::resource('records', RecordsController::class)->except('show');
+
 
