@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\User\RecordsController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoriesController as AdminCategoriesController;
@@ -27,5 +28,5 @@ Route::name('admin.')->prefix('admin')->middleware(['admin', 'auth'])->group(fun
         'categories' => AdminCategoriesController::class
     ]);
 });
-
+Route::resource('records', RecordsController::class)->except('show');
 

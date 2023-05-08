@@ -9,7 +9,7 @@ class Record extends Model
 {
     use HasFactory;
 
-    protected $fillable = ['date', 'kind', 'category_id', 'total', 'comment'];
+    protected $fillable = ['date', 'kind', 'category_id', 'total', 'comment', 'user_id'];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
