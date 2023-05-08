@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Admin\CategoriesController as AdminCategoriesController;
 /*
@@ -20,9 +21,11 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::name('admin.')->prefix('admin')->middleware('auth')->group(function ()
+Route::name('admin.')->prefix('admin')->middleware(['admin', 'auth'])->group(function ()
 {
     Route::resources([
         'categories' => AdminCategoriesController::class
     ]);
 });
+
+
