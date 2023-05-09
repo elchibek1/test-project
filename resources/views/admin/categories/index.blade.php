@@ -52,5 +52,11 @@
                 </tbody>
             </table>
         </div>
+        <div class="justify-content-md-center p-5">
+            <div class="col-md-auto">
+                {{ $categories->links() }}
+            </div>
+        </div>
     </div>
+
 @endsection

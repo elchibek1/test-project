@@ -27,7 +27,7 @@ class RecordRequest extends FormRequest
             'category_id' => ['required', 'bail'],
             'total' =>  ['required', 'bail', 'numeric'],
             'comment' => ['nullable', 'max:250'],
-            'user_id' => ['required', 'bail']
+            'user_id' => ['bail']
         ];
     }
 }
