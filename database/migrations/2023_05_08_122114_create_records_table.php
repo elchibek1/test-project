@@ -16,7 +16,7 @@ return new class extends Migration
             $table->date('date')->default(now());
             $table->string('kind');
             $table->foreignId('category_id')->constrained()->cascadeOnDelete()->cascadeOnUpdate();
-            $table->float('total');
+            $table->bigInteger('total');
             $table->text('comment')->nullable();
             $table->timestamps();
         });

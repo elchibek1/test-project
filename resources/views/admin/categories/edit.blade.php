@@ -3,6 +3,7 @@
     <div class="container mt-5">
         <h1 class="text-center pb-3">Создать категорию</h1>
         <form action="{{ route('admin.categories.update', compact('category'))}}" method="post">
+            @method('PUT')
             @csrf
             <div class="form-group">
                 <label for="name">Название</label>
